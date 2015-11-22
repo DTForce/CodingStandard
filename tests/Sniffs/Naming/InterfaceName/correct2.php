@@ -1,7 +1,7 @@
 <?php
 
 
-interface InterfaceSomeInterface
+interface ISomeInterface
 {
 
 }

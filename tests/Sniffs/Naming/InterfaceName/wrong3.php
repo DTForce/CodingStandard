@@ -1,7 +1,7 @@
 <?php
 
 
-interface ISomeClass
+interface SomeClassInterface
 {
 
 }

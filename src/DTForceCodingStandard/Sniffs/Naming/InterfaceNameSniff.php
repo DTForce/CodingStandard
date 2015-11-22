@@ -55,14 +55,20 @@ final class InterfaceNameSniff implements PHP_CodeSniffer_Sniff
 
 		$interfaceName = $this->getInterfaceName();
 
-		if (strpos($interfaceName, 'I') === 0) {
+		if (strpos($interfaceName, 'I') === 0 &&
+			strlen($interfaceName) > 2 &&
+			$this->firstTwoLetterCapital($interfaceName)
+		) {
 			return;
 		}
 
 		$file->addError('Interface should have prefix "I".', $position);
 	}
 
-
+	private function firstTwoLetterCapital($str) {
+		$chr = mb_substr ($str, 0, 2, "UTF-8");
+		return mb_strtoupper($chr, "UTF-8") == $chr;
+	}
 	/**
 	 * @return string|FALSE
 	 */
