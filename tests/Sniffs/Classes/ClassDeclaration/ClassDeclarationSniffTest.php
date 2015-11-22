@@ -1,20 +1,20 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Sniffs\Classes\ClassDeclaration;
+namespace DTForce\CodingStandard\Tests\Sniffs\Classes\ClassDeclaration;
 
+use DTForce\CodingStandard\Tests\CodeSnifferRunner;
 use PHPUnit_Framework_TestCase;
-use Zenify\CodingStandard\Tests\CodeSnifferRunner;
 
 
 /**
- * @covers ZenifyCodingStandard\Sniffs\Classes\ClassDeclarationSniff
+ * @covers DTForceCodingStandard\Sniffs\Classes\ClassDeclarationSniff
  */
 final class ClassDeclarationSniffTest extends PHPUnit_Framework_TestCase
 {
 
 	public function testDetection()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.Classes.ClassDeclaration');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.Classes.ClassDeclaration');
 
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong.php'));
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong2.php'));

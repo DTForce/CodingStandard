@@ -2,13 +2,13 @@
 
 Set of rules for [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) preferring tabs and based on [Nette coding standard](http://nette.org/en/coding-standard).
 
-**Check [rules overview](docs/en/zenify-rules-overview.md) for examples.**
+**Check [rules overview](docs/en/dtforce-rules-overview.md) for examples.**
 
 
 ## Install
 
 ```sh
-$ composer require zenify/coding-standard --dev
+$ composer require dtforce/coding-standard --dev
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ $ composer require zenify/coding-standard --dev
 Run with Php_CodeSniffer:
 
 ```sh
-$ vendor/bin/phpcs src --standard=vendor/zenify/coding-standard/src/ZenifyCodingStandard/ruleset.xml -p
+$ vendor/bin/phpcs src --standard=vendor/dtforce/coding-standard/src/DTForceCodingStandard/ruleset.xml -p
 ```
 
 That's all!
@@ -36,10 +36,10 @@ In case you don't want to use Php_CodeSniffer manually for every change in the c
 ```json
 "scripts": {
 	"post-install-cmd": [
-		"Zenify\\CodingStandard\\Composer\\ScriptHandler::addPhpCsToPreCommitHook"
+		"DTForce\\CodingStandard\\Composer\\ScriptHandler::addPhpCsToPreCommitHook"
 	],
 	"post-update-cmd": [
-		"Zenify\\CodingStandard\\Composer\\ScriptHandler::addPhpCsToPreCommitHook"
+		"DTForce\\CodingStandard\\Composer\\ScriptHandler::addPhpCsToPreCommitHook"
 	]
 }
 ```

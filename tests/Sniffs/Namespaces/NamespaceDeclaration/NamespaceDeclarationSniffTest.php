@@ -1,20 +1,20 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Sniffs\Namespaces\NamespaceDeclaration;
+namespace DTForce\CodingStandard\Tests\Sniffs\Namespaces\NamespaceDeclaration;
 
+use DTForce\CodingStandard\Tests\CodeSnifferRunner;
 use PHPUnit_Framework_TestCase;
-use Zenify\CodingStandard\Tests\CodeSnifferRunner;
 
 
 /**
- * @covers ZenifyCodingStandard\Sniffs\Namespaces\NamespaceDeclarationSniff
+ * @covers DTForceCodingStandard\Sniffs\Namespaces\NamespaceDeclarationSniff
  */
 final class NamespaceDeclarationSniffTest extends PHPUnit_Framework_TestCase
 {
 
 	public function testDetection()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.Namespaces.NamespaceDeclaration');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.Namespaces.NamespaceDeclaration');
 
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong.php'));
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong2.php'));

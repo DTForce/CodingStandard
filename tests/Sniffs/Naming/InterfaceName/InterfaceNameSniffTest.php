@@ -1,20 +1,20 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Sniffs\Naming\InterfaceName;
+namespace DTForce\CodingStandard\Tests\Sniffs\Naming\InterfaceName;
 
+use DTForce\CodingStandard\Tests\CodeSnifferRunner;
 use PHPUnit_Framework_TestCase;
-use Zenify\CodingStandard\Tests\CodeSnifferRunner;
 
 
 /**
- * @covers ZenifyCodingStandard\Sniffs\Naming\InterfaceNameSniff
+ * @covers DTForceCodingStandard\Sniffs\Naming\InterfaceNameSniff
  */
 final class InterfaceNameSniffTest extends PHPUnit_Framework_TestCase
 {
 
 	public function testDetection()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.Naming.InterfaceName');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.Naming.InterfaceName');
 
 		$this->assertSame(0, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/correct.php'));
 		$this->assertSame(0, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/correct2.php'));

@@ -1,20 +1,20 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Sniffs\Commenting\MethodCommentReturnTag;
+namespace DTForce\CodingStandard\Tests\Sniffs\Commenting\MethodCommentReturnTag;
 
+use DTForce\CodingStandard\Tests\CodeSnifferRunner;
 use PHPUnit_Framework_TestCase;
-use Zenify\CodingStandard\Tests\CodeSnifferRunner;
 
 
 /**
- * @covers ZenifyCodingStandard\Sniffs\Commenting\MethodCommentReturnTagSniff
+ * @covers DTForceCodingStandard\Sniffs\Commenting\MethodCommentReturnTagSniff
  */
 final class MethodCommentReturnTagSniffTest extends PHPUnit_Framework_TestCase
 {
 
 	public function testDetection()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.Commenting.MethodCommentReturnTag');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.Commenting.MethodCommentReturnTag');
 
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong.php'));
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong2.php'));

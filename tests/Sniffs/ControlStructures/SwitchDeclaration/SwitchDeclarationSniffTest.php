@@ -1,20 +1,20 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Sniffs\ControlStructures\SwitchDeclaration;
+namespace DTForce\CodingStandard\Tests\Sniffs\ControlStructures\SwitchDeclaration;
 
+use DTForce\CodingStandard\Tests\CodeSnifferRunner;
 use PHPUnit_Framework_TestCase;
-use Zenify\CodingStandard\Tests\CodeSnifferRunner;
 
 
 /**
- * @covers ZenifyCodingStandard\Sniffs\ControlStructures\SwitchDeclarationSniff
+ * @covers DTForceCodingStandard\Sniffs\ControlStructures\SwitchDeclarationSniff
  */
 final class SwitchDeclarationSniffTest extends PHPUnit_Framework_TestCase
 {
 
 	public function testDetection()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.ControlStructures.SwitchDeclaration');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.ControlStructures.SwitchDeclaration');
 
 		$this->assertSame(4, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong.php'));
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong2.php'));

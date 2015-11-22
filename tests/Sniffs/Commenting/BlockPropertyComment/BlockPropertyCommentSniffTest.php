@@ -1,20 +1,20 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Sniffs\Commenting\BlockPropertyComment;
+namespace DTForce\CodingStandard\Tests\Sniffs\Commenting\BlockPropertyComment;
 
+use DTForce\CodingStandard\Tests\CodeSnifferRunner;
 use PHPUnit_Framework_TestCase;
-use Zenify\CodingStandard\Tests\CodeSnifferRunner;
 
 
 /**
- * @covers ZenifyCodingStandard\Sniffs\Commenting\BlockPropertyCommentSniff
+ * @covers DTForceCodingStandard\Sniffs\Commenting\BlockPropertyCommentSniff
  */
 final class BlockPropertyCommentSniffTest extends PHPUnit_Framework_TestCase
 {
 
 	public function testDetection()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.Commenting.BlockPropertyComment');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.Commenting.BlockPropertyComment');
 
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong.php'));
 		$this->assertSame(0, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/correct.php'));

@@ -6,7 +6,7 @@ FILES=$(git diff --name-only --cached --diff-filter=ACMRTUXB | grep .php);
 # run phpcs
 if [ ! -z "$FILES" ]; then
 	printf "Running Code Sniffer..."
-	vendor/bin/phpcs $FILES --standard=vendor/zenify/coding-standard/src/ZenifyCodingStandard/ruleset.xml
+	vendor/bin/phpcs $FILES --standard=vendor/dtforce/coding-standard/src/DTForceCodingStandard/ruleset.xml
 
 	if [ $? -ne 0 ]
 	then

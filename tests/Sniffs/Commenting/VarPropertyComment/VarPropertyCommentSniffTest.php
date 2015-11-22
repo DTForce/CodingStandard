@@ -1,20 +1,20 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Sniffs\Commenting\VarPropertyComment;
+namespace DTForce\CodingStandard\Tests\Sniffs\Commenting\VarPropertyComment;
 
+use DTForce\CodingStandard\Tests\CodeSnifferRunner;
 use PHPUnit_Framework_TestCase;
-use Zenify\CodingStandard\Tests\CodeSnifferRunner;
 
 
 /**
- * @covers ZenifyCodingStandard\Sniffs\Commenting\VarPropertyCommentSniff
+ * @covers DTForceCodingStandard\Sniffs\Commenting\VarPropertyCommentSniff
  */
 final class VarPropertyCommentSniffTest extends PHPUnit_Framework_TestCase
 {
 
 	public function testDetection()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.Commenting.VarPropertyComment');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.Commenting.VarPropertyComment');
 
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong.php'));
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong2.php'));

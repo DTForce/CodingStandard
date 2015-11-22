@@ -1,8 +1,9 @@
 {
-	"name": "zenify/coding-standard",
+	"name": "dtforce/coding-standard",
 	"description": "Set of rules for PHP_CodeSniffer preferring tabs and based on Nette coding standard.",
 	"license": "MIT",
 	"authors": [
+		{ "name": "DTForce - Jan Mareš ", "email": "jan.mares@dtforce.com", "homepage": "http://www.dtforce.com" },
 		{ "name": "Tomáš Votruba", "email": "tomas.vot@gmail.com", "homepage": "http://tomasvotruba.cz" }
 	],
 	"require": {
@@ -11,12 +12,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Zenify\\CodingStandard\\": "src"
+			"DTForce\\CodingStandard\\": "src"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Zenify\\CodingStandard\\Tests\\": "tests"
+			"DTForce\\CodingStandard\\Tests\\": "tests"
 		}
 	}
 }

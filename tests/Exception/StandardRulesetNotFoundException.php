@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Exception;
+namespace DTForce\CodingStandard\Tests\Exception;
 
 use Exception;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Sniffs\ControlStructures\WeakTypesComparisonsWithExplanation;
+namespace DTForce\CodingStandard\Tests\Sniffs\ControlStructures\WeakTypesComparisonsWithExplanation;
 
+use DTForce\CodingStandard\Tests\CodeSnifferRunner;
 use PHPUnit_Framework_TestCase;
-use Zenify\CodingStandard\Tests\CodeSnifferRunner;
 
 
 /**
- * @covers ZenifyCodingStandard\Sniffs\ControlStructures\WeakTypesComparisonsWithExplanationSniff
+ * @covers DTForceCodingStandard\Sniffs\ControlStructures\WeakTypesComparisonsWithExplanationSniff
  */
 final class WeakTypesComparisonsWithExplanationSniffTest extends PHPUnit_Framework_TestCase
 {
@@ -15,7 +15,7 @@ final class WeakTypesComparisonsWithExplanationSniffTest extends PHPUnit_Framewo
 	public function testDetection()
 	{
 		$codeSnifferRunner = new CodeSnifferRunner(
-				'ZenifyCodingStandard.ControlStructures.WeakTypesComparisonsWithExplanation'
+				'DTForceCodingStandard.ControlStructures.WeakTypesComparisonsWithExplanation'
 		);
 		$this->assertSame(2, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong.php'));
 		$this->assertSame(0, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/correct.php'));

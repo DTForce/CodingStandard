@@ -1,20 +1,20 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Sniffs\Naming\AbstractClassName;
+namespace DTForce\CodingStandard\Tests\Sniffs\Naming\AbstractClassName;
 
+use DTForce\CodingStandard\Tests\CodeSnifferRunner;
 use PHPUnit_Framework_TestCase;
-use Zenify\CodingStandard\Tests\CodeSnifferRunner;
 
 
 /**
- * @covers ZenifyCodingStandard\Sniffs\Naming\AbstractClassNameSniff
+ * @covers DTForceCodingStandard\Sniffs\Naming\AbstractClassNameSniff
  */
 final class AbstractClassNameSniffTest extends PHPUnit_Framework_TestCase
 {
 
 	public function testDetection()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.Naming.AbstractClassName');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.Naming.AbstractClassName');
 
 		$this->assertSame(0, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/correct.php'));
 		$this->assertSame(0, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/correct2.php'));

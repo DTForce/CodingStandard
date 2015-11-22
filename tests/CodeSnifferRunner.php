@@ -1,10 +1,10 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests;
+namespace DTForce\CodingStandard\Tests;
 
+use DTForce\CodingStandard\Tests\Exception\FileNotFoundException;
+use DTForce\CodingStandard\Tests\Exception\StandardRulesetNotFoundException;
 use PHP_CodeSniffer;
-use Zenify\CodingStandard\Tests\Exception\FileNotFoundException;
-use Zenify\CodingStandard\Tests\Exception\StandardRulesetNotFoundException;
 
 
 final class CodeSnifferRunner
@@ -19,7 +19,7 @@ final class CodeSnifferRunner
 	 * @var string[]
 	 */
 	private $standardRulesets = [
-		'ZenifyCodingStandard' => __DIR__ . '/../src/ZenifyCodingStandard/ruleset.xml'
+		'DTForceCodingStandard' => __DIR__ . '/../src/DTForceCodingStandard/ruleset.xml'
 	];
 
 

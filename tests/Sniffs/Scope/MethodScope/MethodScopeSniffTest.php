@@ -1,20 +1,20 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Sniffs\Scope\MethodScope;
+namespace DTForce\CodingStandard\Tests\Sniffs\Scope\MethodScope;
 
+use DTForce\CodingStandard\Tests\CodeSnifferRunner;
 use PHPUnit_Framework_TestCase;
-use Zenify\CodingStandard\Tests\CodeSnifferRunner;
 
 
 /**
- * @covers ZenifyCodingStandard\Sniffs\Scope\MethodScopeSniff
+ * @covers DTForceCodingStandard\Sniffs\Scope\MethodScopeSniff
  */
 final class MethodScopeSniffTest extends PHPUnit_Framework_TestCase
 {
 
 	public function testDetection()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.Scope.MethodScope');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.Scope.MethodScope');
 
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong.php'));
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong2.php'));

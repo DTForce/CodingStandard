@@ -1,20 +1,20 @@
 <?php
 
-namespace Zenify\CodingStandard\Tests\Sniffs\WhiteSpace\DocBlock;
+namespace DTForce\CodingStandard\Tests\Sniffs\WhiteSpace\DocBlock;
 
+use DTForce\CodingStandard\Tests\CodeSnifferRunner;
 use PHPUnit_Framework_TestCase;
-use Zenify\CodingStandard\Tests\CodeSnifferRunner;
 
 
 /**
- * @covers ZenifyCodingStandard\Sniffs\WhiteSpace\DocBlockSniff
+ * @covers DTForceCodingStandard\Sniffs\WhiteSpace\DocBlockSniff
  */
 final class DocBlockSniffTest extends PHPUnit_Framework_TestCase
 {
 
 	public function testDetection()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.WhiteSpace.DocBlock');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.WhiteSpace.DocBlock');
 
 		$this->assertSame(4, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong.php'));
 		$this->assertSame(0, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/correct.php'));
@@ -23,7 +23,7 @@ final class DocBlockSniffTest extends PHPUnit_Framework_TestCase
 
 	public function testIdentationInside()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.WhiteSpace.DocBlock');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.WhiteSpace.DocBlock');
 
 		$this->assertSame(2, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong-inside.php'));
 		$this->assertSame(0, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/correct-inside.php'));
@@ -32,7 +32,7 @@ final class DocBlockSniffTest extends PHPUnit_Framework_TestCase
 
 	public function testIdentationInside2()
 	{
-		$codeSnifferRunner = new CodeSnifferRunner('ZenifyCodingStandard.WhiteSpace.DocBlock');
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.WhiteSpace.DocBlock');
 
 		$this->assertSame(1, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/wrong-inside2.php'));
 		$this->assertSame(0, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/correct-inside2.php'));

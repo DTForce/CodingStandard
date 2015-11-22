@@ -12,7 +12,7 @@ env:
     - PHPCS_FLAGS="--ignore=wrong,correct"
 
 install:
-  - composer create-project --prefer-source --dev --no-interaction zenify/ci vendor/ci @dev
+  - composer create-project --prefer-source --dev --no-interaction dtforce/ci vendor/ci @dev
   - . vendor/ci/travis/coverage-init.sh
   - composer install --prefer-source
 
