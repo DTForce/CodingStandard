@@ -43,16 +43,9 @@
 
 	<!--Whitespace -->
 	<rule ref="DTForceCodingStandard.Whitespace.ConcatOperator" />
-	<rule ref="DTForceCodingStandard.Whitespace.ExclamationMark" />
-	<rule ref="DTForceCodingStandard.Whitespace.IfElseTryCatchFinally" />
 	<rule ref="DTForceCodingStandard.Whitespace.InBetweenMethodSpacing">
 		<properties>
 			<property name="blankLinesBetweenMethods" value="2" />
-		</properties>
-	</rule>
-	<rule ref="DTForceCodingStandard.Whitespace.InBetweenExceptionSpacing">
-		<properties>
-			<property name="blankLinesBetweenExceptions" value="2" />
 		</properties>
 	</rule>
 	<rule ref="DTForceCodingStandard.Whitespace.OperatorSpacing" />

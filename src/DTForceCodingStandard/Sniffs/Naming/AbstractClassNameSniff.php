@@ -57,11 +57,11 @@ final class AbstractClassNameSniff implements PHP_CodeSniffer_Sniff
 			return;
 		}
 
-		if (strpos($this->getClassName(), 'Abstract') === 0) {
+		if (strpos($this->getClassName(), 'A') === 0) {
 			return;
 		}
 
-		$file->addError('Abstract class should have prefix "Abstract".', $position);
+		$file->addError('Abstract class should have prefix "A".', $position);
 	}
 
 

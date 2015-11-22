@@ -54,11 +54,12 @@ final class InterfaceNameSniff implements PHP_CodeSniffer_Sniff
 		$this->position = $position;
 
 		$interfaceName = $this->getInterfaceName();
-		if ((strlen($interfaceName) - strlen('Interface')) === strrpos($interfaceName, 'Interface')) {
+
+		if (strpos($interfaceName, 'I') === 0) {
 			return;
 		}
 
-		$file->addError('Interface should have suffix "Interface".', $position);
+		$file->addError('Interface should have prefix "I".', $position);
 	}
 
 
