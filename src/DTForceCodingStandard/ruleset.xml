@@ -44,7 +44,6 @@
 	<!-- Formatting -->
 	<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 	<rule ref="Generic.Formatting.DisallowMultipleStatements.SameLine"><severity>0</severity></rule>
-	<rule ref="Generic.Formatting.SpaceAfterCast"/>
 
 	<!-- Functions -->
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
@@ -80,7 +79,7 @@
 
 	<!-- PHP -->
 	<rule ref="Generic.PHP.DisallowShortOpenTag"/>
-	<rule ref="Generic.PHP.UpperCaseConstant"/>
+	<rule ref="Generic.PHP.LowerCaseConstantSniff"/>
 	<rule ref="MySource.PHP.EvalObjectFactory"/>
 	<rule ref="MySource.PHP.GetRequestData"/>
 	<rule ref="Squiz.PHP.NonExecutableCode"/>
