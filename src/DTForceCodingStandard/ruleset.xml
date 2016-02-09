@@ -27,7 +27,7 @@
 	<rule ref="PEAR.ControlStructures.MultiLineCondition.StartWithBoolean">
 		<severity>0</severity>
 	</rule>
-	<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
+	<rule ref="Squiz.ControlStructures.ElseIfDeclaration"/>
 	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
 	<rule ref="Squiz.ControlStructures.ForLoopDeclaration"/>
 	<rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
@@ -80,7 +80,11 @@
 
 	<!-- NamingConventions -->
 	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
-	<rule ref="Generic.NamingConventions.CamelCapsFunctionName"/>
+	<rule ref="Generic.NamingConventions.CamelCapsFunctionName">
+		<properties>
+			<property name="strict" value="false"/>
+		</properties>
+	</rule>
 
 	<!-- PHP -->
 	<rule ref="Generic.PHP.DisallowShortOpenTag"/>
