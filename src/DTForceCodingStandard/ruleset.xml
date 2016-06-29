@@ -70,10 +70,14 @@
 	<rule ref="PSR2.Methods.MethodDeclaration"/>
 
 	<!-- Metrics -->
-	<rule ref="Generic.Metrics.CyclomaticComplexity"/>
+	<rule ref="Generic.Metrics.CyclomaticComplexity">
+		<properties>
+			<property name="complexity" value="20"/>
+		</properties>
+	</rule>
 	<rule ref="Generic.Metrics.NestingLevel">
 		<properties>
-			<property name="nestingLevel" value="3"/>
+			<property name="nestingLevel" value="4"/>
 			<property name="absoluteNestingLevel" value="6"/>
 		</properties>
 	</rule>
