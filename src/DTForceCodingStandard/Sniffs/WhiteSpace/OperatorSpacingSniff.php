@@ -145,7 +145,7 @@ final class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff
 	 */
 	private function isTokenStartOfDefaultValue()
 	{
-		if ($this->token['code'] !== T_EQUAL && $this->token['code'] !== T_MINUS) {
+		if ($this->token['code'] !== T_EQUAL && $this->token['code'] !== T_MINUS  && $this->token['code'] !== T_INLINE_THEN) {
 			return FALSE;
 		}
 
