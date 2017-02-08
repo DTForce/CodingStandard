@@ -100,23 +100,12 @@ final class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff
 	 */
 	private function isToBeSkipped()
 	{
-		if ($this->isDefaultValueInFunctionDeclaration()) {
-			return TRUE;
-		}
-
-		if ($this->isShortTernaryOperator()) {
-			return TRUE;
-		}
-
-		if ($this->isMinusAssign()) {
-			return TRUE;
-		}
-
-		if ($this->isReference()) {
-			return TRUE;
-		}
-
-		return FALSE;
+		return $this->isDefaultValueInFunctionDeclaration()
+			|| $this->isShortTernaryOperator()
+			|| $this->isMinusAssign()
+			|| $this->isReference()
+			|| $this->isNullableSign()
+			|| $this->isCaseColon();
 	}
 
 
@@ -233,11 +222,58 @@ final class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff
 	 */
 	private function isReference()
 	{
-		if ($this->tokens[$this->position]['code'] === T_BITWISE_AND && $this->file->isReference($this->position)) {
-			return TRUE;
+		return $this->tokens[$this->position]['code'] === T_BITWISE_AND && $this->file->isReference($this->position);
+	}
+
+
+	private function isNullableSign()
+	{
+		$nextTokenCheck = $this->tokens[$this->position]['code'] === T_INLINE_THEN
+			&& $this->tokens[$this->position + 1]['code'] === T_STRING;
+
+		if (!$nextTokenCheck) {
+			return false;
+		} else if (isset($this->token['nested_parenthesis'])) {
+			return true;
+		} else {
+			// Is nullable function return type examined ?
+			$prevToken = $this->skipTokens([T_WHITESPACE], false);
+			$nextToken = $this->skipTokens([T_WHITESPACE, T_STRING, T_DOUBLE_COLON], true);
+
+			return $prevToken
+				&& ($prevToken['code'] === T_INLINE_ELSE || $prevToken['code'] === T_COLON)
+				&& $nextToken
+				&& $nextToken['code'] === T_OPEN_CURLY_BRACKET;
+		}
+	}
+
+
+	private function isCaseColon()
+	{
+		if ($this->token['code'] !== T_INLINE_ELSE) {
+			return false;
 		}
 
-		return FALSE;
+		$prevToken = $this->skipTokens(
+			[T_STRING, T_DOUBLE_COLON, T_DOUBLE_QUOTED_STRING, T_WHITESPACE, T_LNUMBER, T_CONSTANT_ENCAPSED_STRING],
+			false
+		);
+
+		return $prevToken && $prevToken['code'] === T_CASE;
+	}
+
+
+	private function skipTokens($toSkip, $forward)
+	{
+		$pos = $this->position;
+		$token = null;
+
+		do {
+			$pos = $forward === true ? $pos + 1 : $pos - 1;
+			$token = $this->tokens[$pos];
+		} while ($token && in_array($token['code'], $toSkip));
+
+		return $token;
 	}
 
 }

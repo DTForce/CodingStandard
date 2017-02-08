@@ -20,4 +20,10 @@ final class OperatorSpacingSniffTest extends PHPUnit_Framework_TestCase
 		$this->assertSame(0, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/correct.php'));
 	}
 
+	public function testNullable()
+	{
+		$codeSnifferRunner = new CodeSnifferRunner('DTForceCodingStandard.WhiteSpace.OperatorSpacing');
+		$this->assertSame(0, $codeSnifferRunner->getErrorCountInFile(__DIR__ . '/correct1.php'));
+	}
+
 }
