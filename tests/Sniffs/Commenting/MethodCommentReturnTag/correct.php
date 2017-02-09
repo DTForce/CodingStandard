@@ -14,4 +14,9 @@ class SomeClass
 		return 'some';
 	}
 
+
+	public function getXY() : float
+	{
+	}
+
 }

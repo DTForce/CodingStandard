@@ -14,6 +14,7 @@
 
 namespace DTForceCodingStandard\Sniffs\Commenting;
 
+use DTForceCodingStandard\Helper\Parsing\ParsingUtilities;
 use PHP_CodeSniffer_File;
 use PHP_CodeSniffer_Sniff;
 
@@ -61,7 +62,9 @@ final class ComponentFactoryCommentSniff implements PHP_CodeSniffer_Sniff
 		$this->position = $position;
 		$this->tokens = $file->getTokens();
 
-		if ( ! $this->isComponentFactoryMethod()) {
+		if ( ! $this->isComponentFactoryMethod()
+			|| ParsingUtilities::hasFunctionReturnType($file, $position)
+		) {
 			return;
 		}
 

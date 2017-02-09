@@ -15,6 +15,7 @@
 namespace DTForceCodingStandard\Sniffs\Commenting;
 
 use DTForceCodingStandard\Helper\Commenting\MethodDocBlock;
+use DTForceCodingStandard\Helper\Parsing\ParsingUtilities;
 use PHP_CodeSniffer_File;
 use PHP_CodeSniffer_Sniff;
 
@@ -29,7 +30,7 @@ final class MethodCommentReturnTagSniff implements PHP_CodeSniffer_Sniff
 	/**
 	 * @var string[]
 	 */
-	private $getterMethodPrefixes = ['get', 'is', 'has', 'will', 'should'];
+	private $getterMethodPrefixes = ['get', 'is', 'has'];
 
 
 	/**
@@ -47,12 +48,13 @@ final class MethodCommentReturnTagSniff implements PHP_CodeSniffer_Sniff
 	public function process(PHP_CodeSniffer_File $file, $position)
 	{
 		$methodName = $file->getDeclarationName($position);
-		$isGetterMethod = $this->guessIsGetterMethod($methodName);
-		if ($isGetterMethod === FALSE) {
+		if (!$this->guessIsGetterMethod($methodName)
+			|| ParsingUtilities::hasFunctionReturnType($file, $position) // If function has return type, dockblock with anotations is not necessary.
+		) {
 			return;
 		}
 
-		if (MethodDocBlock::hasMethodDocBlock($file, $position) === FALSE) {
+		if (!MethodDocBlock::hasMethodDocBlock($file, $position)) {
 			$file->addError('Getters should have docblock.', $position);
 			return;
 		}

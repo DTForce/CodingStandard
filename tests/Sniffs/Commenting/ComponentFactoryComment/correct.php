@@ -15,4 +15,9 @@ class SomeClass
 	{
 	}
 
+
+	protected function createComponentAbc() : Abc
+	{
+	}
+
 }

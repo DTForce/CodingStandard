@@ -14,6 +14,7 @@
 
 namespace DTForceCodingStandard\Sniffs\WhiteSpace;
 
+use DTForceCodingStandard\Helper\Parsing\ParsingUtilities;
 use PHP_CodeSniffer_File;
 use PHP_CodeSniffer_Sniff;
 use PHP_CodeSniffer_Tokens;
@@ -237,8 +238,13 @@ final class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff
 			return true;
 		} else {
 			// Is nullable function return type examined ?
-			$prevToken = $this->skipTokens([T_WHITESPACE], false);
-			$nextToken = $this->skipTokens([T_WHITESPACE, T_STRING, T_DOUBLE_COLON], true);
+			$prevToken = ParsingUtilities::skipTokens($this->tokens, $this->position, [T_WHITESPACE], false);
+			$nextToken = ParsingUtilities::skipTokens(
+				$this->tokens,
+				$this->position,
+				[T_WHITESPACE, T_STRING, T_DOUBLE_COLON],
+				true
+			);
 
 			return $prevToken
 				&& ($prevToken['code'] === T_INLINE_ELSE || $prevToken['code'] === T_COLON)
@@ -254,26 +260,14 @@ final class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff
 			return false;
 		}
 
-		$prevToken = $this->skipTokens(
+		$prevToken = ParsingUtilities::skipTokens(
+			$this->tokens,
+			$this->position,
 			[T_STRING, T_DOUBLE_COLON, T_DOUBLE_QUOTED_STRING, T_WHITESPACE, T_LNUMBER, T_CONSTANT_ENCAPSED_STRING],
 			false
 		);
 
 		return $prevToken && $prevToken['code'] === T_CASE;
-	}
-
-
-	private function skipTokens($toSkip, $forward)
-	{
-		$pos = $this->position;
-		$token = null;
-
-		do {
-			$pos = $forward === true ? $pos + 1 : $pos - 1;
-			$token = $this->tokens[$pos];
-		} while ($token && in_array($token['code'], $toSkip));
-
-		return $token;
 	}
 
 }
