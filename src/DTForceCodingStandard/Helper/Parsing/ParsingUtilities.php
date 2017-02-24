@@ -38,7 +38,7 @@ class ParsingUtilities
 		$openCurlyPrevToken = ParsingUtilities::skipTokens(
 			$file->getTokens(),
 			$openCurlyPos,
-			[T_WHITESPACE, T_COLON, T_INLINE_ELSE],
+			[T_WHITESPACE, T_COLON, T_INLINE_ELSE, T_INLINE_THEN, T_NULLABLE],
 			true
 		);
 

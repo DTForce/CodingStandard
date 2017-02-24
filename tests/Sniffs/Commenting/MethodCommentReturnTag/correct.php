@@ -6,6 +6,10 @@ namespace SomeNamespace;
 class SomeClass
 {
 
+	public function getSummary() : ?string
+	{
+	}
+
 	/**
 	 * @return string
 	 */
@@ -22,6 +26,8 @@ class SomeClass
 	public function getList() : array
 	{
 	}
+
+	function barInterface(?array $a) : ?array;
 
 	public function getTransactions() : array
 	{

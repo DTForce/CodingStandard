@@ -229,16 +229,7 @@ final class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff
 
 	private function isNullableSign()
 	{
-		$nextTokenCheck = $this->tokens[$this->position]['code'] === T_INLINE_THEN
-			&& $this->tokens[$this->position + 1]['code'] === T_STRING;
-
-		if (!$nextTokenCheck) {
-			return false;
-		} else if (isset($this->token['nested_parenthesis'])) {
-			return true;
-		} else {
-			return $this->tokens[$this->position]['code'] === T_RETURN_TYPE;
-		}
+		return $this->tokens[$this->position]['code'] === T_NULLABLE;
 	}
 
 
