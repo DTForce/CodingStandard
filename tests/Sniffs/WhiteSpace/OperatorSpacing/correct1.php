@@ -8,6 +8,8 @@ function bar(?array $a) : ?array {
 
 }
 
+function barInterface(?array $a) : ?array;
+
 function manyManyArguments(
 	?int $a,
 	string $b,
