@@ -237,19 +237,7 @@ final class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff
 		} else if (isset($this->token['nested_parenthesis'])) {
 			return true;
 		} else {
-			// Is nullable function return type examined ?
-			$prevToken = ParsingUtilities::skipTokens($this->tokens, $this->position, [T_WHITESPACE], false);
-			$nextToken = ParsingUtilities::skipTokens(
-				$this->tokens,
-				$this->position,
-				[T_WHITESPACE, T_RETURN_TYPE, T_DOUBLE_COLON],
-				true
-			);
-
-			return $prevToken
-				&& ($prevToken['code'] === T_INLINE_ELSE || $prevToken['code'] === T_COLON)
-				&& $nextToken
-				&& $nextToken['code'] === T_OPEN_CURLY_BRACKET;
+			return $this->tokens[$this->position]['code'] === T_RETURN_TYPE;
 		}
 	}
 

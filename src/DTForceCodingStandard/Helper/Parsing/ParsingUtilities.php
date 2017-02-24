@@ -34,12 +34,12 @@ class ParsingUtilities
 
 	public static function hasFunctionReturnType(PHP_CodeSniffer_File $file, $position)
 	{
-		$openCurlyPos = $file->findNext(T_OPEN_CURLY_BRACKET, $position);
+		$openCurlyPos = $file->findNext(T_CLOSE_PARENTHESIS, $position);
 		$openCurlyPrevToken = ParsingUtilities::skipTokens(
 			$file->getTokens(),
 			$openCurlyPos,
-			[T_WHITESPACE],
-			false
+			[T_WHITESPACE, T_COLON, T_INLINE_ELSE],
+			true
 		);
 
 		return $openCurlyPrevToken['code'] === T_RETURN_TYPE;
