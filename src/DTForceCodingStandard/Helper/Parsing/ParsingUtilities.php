@@ -42,8 +42,8 @@ class ParsingUtilities
 			false
 		);
 
-		$returnTokens = [T_STRING, T_ARRAY, T_ARRAY_HINT];
-		return in_array($openCurlyPrevToken['code'], $returnTokens);
+		$returnTypeTokens = [T_STRING, T_ARRAY, T_ARRAY_HINT];
+		return in_array($openCurlyPrevToken['code'], $returnTypeTokens);
 	}
 
 }
