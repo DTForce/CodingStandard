@@ -23,4 +23,9 @@ class SomeClass
 	{
 	}
 
+	public function getTransactions() : array
+	{
+		return $this->xy->toArray();
+	}
+
 }
