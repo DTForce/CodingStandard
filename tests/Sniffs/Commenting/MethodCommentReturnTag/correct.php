@@ -19,4 +19,8 @@ class SomeClass
 	{
 	}
 
+	public function getList() : array
+	{
+	}
+
 }
