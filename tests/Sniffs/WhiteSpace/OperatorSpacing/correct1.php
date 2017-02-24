@@ -4,6 +4,10 @@ function abc(?string $a) : ?string {
 
 }
 
+function bar(?array $a) : ?array {
+
+}
+
 function manyManyArguments(
 	?int $a,
 	string $b,

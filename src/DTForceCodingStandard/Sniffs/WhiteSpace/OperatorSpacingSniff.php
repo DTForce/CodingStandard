@@ -242,7 +242,7 @@ final class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff
 			$nextToken = ParsingUtilities::skipTokens(
 				$this->tokens,
 				$this->position,
-				[T_WHITESPACE, T_STRING, T_DOUBLE_COLON],
+				[T_WHITESPACE, T_RETURN_TYPE, T_DOUBLE_COLON],
 				true
 			);
 
